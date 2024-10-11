@@ -13,9 +13,10 @@ namespace ManageResumeBackend.API.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            SeedRoles(builder);
         }
 
-        private void SeedRoles(ModelBuilder builder) {
+        private static void SeedRoles(ModelBuilder builder) {
             builder.Entity<IdentityRole>().HasData(
                 new IdentityRole() { Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" },
                 new IdentityRole() { Name = "User", ConcurrencyStamp = "2", NormalizedName = "User" },
